@@ -17,4 +17,3 @@ jobs:
         run: docker compose stats --no-stream
       - name: Stop the stack
         run: docker compose down -v
-

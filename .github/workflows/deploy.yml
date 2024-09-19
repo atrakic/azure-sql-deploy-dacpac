@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: azure/sql-action@v2.3
-        with:        
+        with:
           connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
           path: './DbProject/DbProject.sqlproj'
           action: 'publish'

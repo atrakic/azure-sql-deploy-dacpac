@@ -1,1 +1,1 @@
-sqlpackage /Version
+sqlpackage /?

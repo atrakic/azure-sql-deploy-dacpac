@@ -9,8 +9,6 @@
 
 ## Prerequisites
 - Azure Subscription
-- Azure SQL Database
-- Azure Service Principal
 
 
 ## Setup
@@ -31,4 +29,3 @@ See [deploy.yml](.github/workflows/deploy.yml)
 - https://learn.microsoft.com/en-gb/sql/tools/sqlpackage/sqlpackage?view=sql-server-ver16
 - https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16
 - https://www.nuget.org/packages/microsoft.build.sql/
-
