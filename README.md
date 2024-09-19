@@ -2,7 +2,7 @@
 
 ## Overview
 
-> This project demonstrates how to deploy a [Data-tier applications (DAC)](https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16) to an Azure SQL Database using a GitHub Action.
+> This project demonstrates how to deploy a [dacpac](https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16) to an Azure SQL Database using a GitHub Action.
 
 ## Prerequisites
 - Azure Subscription

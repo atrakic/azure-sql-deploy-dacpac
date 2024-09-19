@@ -1,6 +1,8 @@
 ## Secrets Required: Azure SQL Connection String:
 # AZURE_SQL_CONNECTION_STRING: 'Server=tcp:yourserver.database.windows.net,1433;Initial Catalog=yourdatabase;Persist Security Info=False;User ID=yourusername;Password=yourpassword;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
 
+name: Deploy dacpac package to Azure SQL
+
 on:
   workflow_dispatch:
     inputs:
