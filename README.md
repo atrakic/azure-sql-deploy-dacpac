@@ -1,5 +1,8 @@
 # azure-sql-deploy-dacpac
 
+[![license](https://img.shields.io/github/license/atrakic/azure-sql-deploy-dacpac.svg)](https://github.com/atrakic/azure-sql-deploy-dacpac/blob/main/LICENSE)
+[![ci](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci.yml)
+
 ## Overview
 
 > This project demonstrates how to deploy a [dacpac](https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16) to an Azure SQL Database using a GitHub Action.
