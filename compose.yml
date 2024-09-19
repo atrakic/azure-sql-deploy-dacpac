@@ -1,0 +1,45 @@
+services:
+  sqlpackage:
+    build:
+      context: ./docker/sqlpackage
+    tty: true
+    container_name: sqlpackage
+    working_dir: /app
+    environment:
+      ConnectionStrings__Default: Server=db;Initial Catalog=demo;UID=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;
+      MSSQL_SA_PASSWORD: Strong=Passw0rd
+    volumes:
+      - $PWD/DbProject:/app:rw
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        set -exo pipefail
+        dotnet build
+        sqlpackage /Action:Publish /SourceFile:"bin/Debug/DbProject.dacpac" \
+        /TargetConnectionString:"Server=tcp:db,1433;Initial Catalog=demo;User ID=sa;Password=Strong=Passw0rd;TrustServerCertificate=True;Connection Timeout=30;"
+        # enables to keep the container running
+        tail -f /dev/null
+    depends_on:
+      db:
+        condition: service_healthy
+        required: true
+
+  # https://hub.docker.com/r/microsoft/mssql-server
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-CU12-ubuntu-22.04
+    container_name: db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: Strong=Passw0rd
+    ports:
+      - "1433:1433"
+    hostname: db
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Strong=Passw0rd" -Q "SELECT getdate()" -b
+      timeout: 3s
+      interval: 10s
+      retries: 10
+      start_period: 10s
