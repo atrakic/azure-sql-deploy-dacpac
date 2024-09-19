@@ -1,0 +1,32 @@
+## Secrets Required: Azure SQL Connection String:
+# AZURE_SQL_CONNECTION_STRING: 'Server=tcp:yourserver.database.windows.net,1433;Initial Catalog=yourdatabase;Persist Security Info=False;User ID=yourusername;Password=yourpassword;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'dev'
+        options:
+          dev:
+            - 'dev'
+          staging:
+            - 'staging'
+          prod:
+            - 'prod'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    enviornment:
+      name: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/sql-action@v2.3
+        with:        
+          connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+          path: './DbProject/DbProject.sqlproj'
+          action: 'publish'
+          build-arguments: '-c Release'                 # Optional build options passed to dotnet build
+          arguments: '/p:DropObjectsNotInSource=true'   # Optional properties and parameters for SqlPackage Publish
