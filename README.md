@@ -13,17 +13,11 @@
 ## Setup
 1. Create a new Azure SQL Database
 2. Create a new Azure Service Principal
-> See infra [README.md](../infra/README.md) for more details
+> See infra [README.md](../infra/README.md) for more details.
 
 ## Configuration
 1. Add the following secrets to your GitHub repository:
-    - `AZURE_CREDENTIALS` - The Azure Service Principal credentials
-    - `AZURE_SQL_SERVER` - The Azure SQL Server name
-    - `AZURE_SQL_DATABASE` - The Azure SQL Database name
-    - `AZURE_SQL_USERNAME` - The Azure SQL Server username
-    - `AZURE_SQL_PASSWORD` - The Azure SQL Server password
-    - `DACPAC_FILE` - The path to the DACPAC file
-
+    - `AZURE_SQL_CONNECTION_STRING` - Azure SQL Database connection string
 
 ## Azure Deployment
 See [deploy.yml](.github/workflows/deploy.yml)
