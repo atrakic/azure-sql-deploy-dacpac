@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build the stack
-        run: docker-compose up -d
+        run: docker compose up -d
       - name: Test
         run: docker compose logs sqlpackage
       - name: Stats
-        run: docker-compose stats --no-stream
+        run: docker compose stats --no-stream
       - name: Stop the stack
-        run: docker-compose down -v
+        run: docker compose down -v
 
