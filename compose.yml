@@ -8,6 +8,7 @@ services:
     env_file:
       - .env
     environment:
+      DACFX_TELEMETRY_OPTOUT: true
       SourceFile: "bin/Debug/DbProject.dacpac"
       TargetConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
     volumes:
@@ -18,7 +19,7 @@ services:
       - -c
       - |
         /scripts/deploy.sh
-        # enables to keep the container running
+        # keep the container running (for debugging)
         tail -f /dev/null
     depends_on:
       db:

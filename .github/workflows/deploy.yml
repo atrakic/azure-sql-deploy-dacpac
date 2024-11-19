@@ -7,19 +7,17 @@ on:
   workflow_dispatch:
     inputs:
       environment:
+        type: choice
         description: 'Environment'
         required: true
         default: 'dev'
         options:
-          dev:
-            - 'dev'
-          staging:
-            - 'staging'
-          prod:
-            - 'prod'
+          - 'dev'
+          - 'staging'
+          - 'prod'
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.event.inputs.environment }}

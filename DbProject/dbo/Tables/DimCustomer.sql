@@ -13,4 +13,3 @@ CREATE TABLE [dbo].[DimCustomer] (
 
 
 GO
-

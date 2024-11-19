@@ -11,4 +11,3 @@ CREATE TABLE [dbo].[DimDate] (
 
 
 GO
-

@@ -14,4 +14,3 @@
  GROUP BY d.[Year], d.[Month], d.MonthName, c.CountryRegion;
 
 GO
-

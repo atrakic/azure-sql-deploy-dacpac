@@ -5,17 +5,15 @@
 
 ## Overview
 
-> This project demonstrates how to automate database development with
-    [dacpac](https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16) 
-to an Azure SQL Database using a GitHub Actions.
+> This project demonstrates how to automate database development with 'microsoft.sqlpackage' to an Azure SQL Database using a GitHub Actions.
 
 
-## Flow 
+## Flow
 
-1. Database Project build
-2. DacPack file is created
-3. Contents of dacpac is consumed by Github Action
-4. Deploy against a database
+1. Build SQL server objects (tables, views, and instance objects)
+2. Dacpack file is created
+3. Contents of dacpac is consumed by Github Actions
+4. Deploy against a SQL database
 
 
 ## Prerequisites
@@ -23,18 +21,25 @@ to an Azure SQL Database using a GitHub Actions.
 
 ## Setup
 1. Create a new Azure Service Principal
-2. Create a new Azure SQL Database, see infra [README.md](../infra/README.md) for more details.
+2. Create a new Azure SQL Database, see infra [Makefile](./infra/Makefile) for more details.
 
 ## Configuration
 1. Add the following secrets to your GitHub repository:
-    - `AZURE_SQL_CONNECTION_STRING` - Azure SQL Database connection string
+    - `AZURE_SQL_CONNECTION_STRING` - Azure SQL Database connection string of your choice
 
 ## Azure Deployment
-See [deploy.yml](.github/workflows/deploy.yml)
+1. Run database deployment from github actions tab. See [deploy.yml](.github/workflows/deploy.yml)
 
 
-## Resources
-- https://github.com/microsoft/DacFx?tab=readme-ov-file#-create-a-sql-project
-- https://learn.microsoft.com/en-gb/sql/tools/sqlpackage/sqlpackage?view=sql-server-ver16
-- https://learn.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications?view=sql-server-ver16
-- https://www.nuget.org/packages/microsoft.build.sql/
+## Local development environment
+To run sql project in Docker, follow these steps:
+
+1. Build and start the necessary containers
+```bash
+make docker
+```
+
+2. Examine the logs
+```bash
+docker compose logs -f sqlpackage
+```
