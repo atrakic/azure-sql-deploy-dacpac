@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[DimCustomer] (
-    [CustomerKey]    INT           NOT NULL,
+    [CustomerKey]    INT NOT NULL PRIMARY KEY,
     [CustomerAltKey] VARCHAR (50)  NULL,
     [Title]          VARCHAR (5)   NULL,
     [FirstName]      VARCHAR (50)  NOT NULL,

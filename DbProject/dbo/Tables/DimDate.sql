@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[DimDate] (
-    [DateKey]     INT          NOT NULL,
+    [DateKey]     INT NOT NULL PRIMARY KEY,
     [DateAltKey]  DATE         NOT NULL,
     [DayOfWeek]   INT          NOT NULL,
     [WeekDayName] VARCHAR (10) NULL,
