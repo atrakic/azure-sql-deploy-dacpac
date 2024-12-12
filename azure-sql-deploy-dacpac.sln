@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbProject", "DbProject\DbProject.sqlproj", "{0DA6EF13-79FA-455F-85E0-C6A54842EED0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1AF7517-E017-4C34-A844-B6A2A78D141A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlClient.ConsoleApp", "src\SqlClient.ConsoleApp\SqlClient.ConsoleApp.csproj", "{405F855C-1D92-41FF-9E1A-EDDCE4305170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,12 @@ Global
 		{0DA6EF13-79FA-455F-85E0-C6A54842EED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DA6EF13-79FA-455F-85E0-C6A54842EED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DA6EF13-79FA-455F-85E0-C6A54842EED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405F855C-1D92-41FF-9E1A-EDDCE4305170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405F855C-1D92-41FF-9E1A-EDDCE4305170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405F855C-1D92-41FF-9E1A-EDDCE4305170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405F855C-1D92-41FF-9E1A-EDDCE4305170}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{405F855C-1D92-41FF-9E1A-EDDCE4305170} = {A1AF7517-E017-4C34-A844-B6A2A78D141A}
 	EndGlobalSection
 EndGlobal
