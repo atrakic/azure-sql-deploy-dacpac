@@ -1,4 +1,7 @@
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+ARG BUILD_SDK_VERSION=9.0
+ARG RUNTIME_VERSION=9.0
+
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:${BUILD_SDK_VERSION} AS build
 ARG TARGETARCH
 WORKDIR /source
 
@@ -10,8 +13,8 @@ RUN dotnet restore -a $TARGETARCH
 COPY . ./
 RUN dotnet publish -c Release -a $TARGETARCH --no-restore -o /app
 
-# Use the official Microsoft .NET runtime image
-FROM mcr.microsoft.com/dotnet/runtime:9.0 AS final
+
+FROM mcr.microsoft.com/dotnet/runtime:${RUNTIME_VERSION} AS final
 WORKDIR /app
 COPY --link --from=build /app ./
 ARG APP_UID=1000
