@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build the stack
-        run: docker compose up --quiet-pull --no-color --remove-orphans --abort-on-container-failure --exit-code-from seed
+        run: DOCKER_BUILDKIT=1 docker compose up --quiet-pull --no-color --remove-orphans --exit-code-from seed
