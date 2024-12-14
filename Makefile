@@ -9,6 +9,10 @@ build:
 	dotnet outdated --upgrade
 	dotnet build
 
+test:
+	#dotnet test
+	./tests/test.sh
+
 clean:
 	dotnet clean
 	docker compose down --remove-orphans --volumes

@@ -5,8 +5,7 @@ CREATE TABLE [dbo].[DimCustomer]
     [LastName] VARCHAR (50) NOT NULL,
     [AddressLine1] VARCHAR (200) NOT NULL,
     [City] VARCHAR (50) NOT NULL,
-    [PostalCode] VARCHAR (20) NOT NULL,
-    [SurrogateKey] INT NOT NULL
+    [PostalCode] VARCHAR (20) NOT NULL
 );
 GO
 
