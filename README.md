@@ -5,7 +5,7 @@
 
 ## Overview
 
-> This project demonstrates how to automate database development with 'microsoft.sqlpackage' to an Azure SQL Database using a GitHub Actions.
+> This project demonstrates how to automate test a star schema development with 'microsoft.sqlpackage' using a GitHub Actions & Docker.
 
 
 ## Flow
@@ -16,7 +16,7 @@
 4. Deploy against a SQL database
 
 
-## Prerequisites
+## Deployment prerequisites
 - Azure Subscription
 
 ## Setup
@@ -25,7 +25,7 @@
 
 ## Configuration
 1. Add the following secrets to your GitHub repository:
-    - `AZURE_SQL_CONNECTION_STRING` - Azure SQL Database connection string of your choice
+    - `AZURE_SQL_CONNECTION_STRING` - Azure SQL Database connection string of your database
 
 ## Azure Deployment
 1. Run database deployment from github actions tab. See [deploy.yml](.github/workflows/deploy.yml)
@@ -41,5 +41,5 @@ make docker
 
 2. Examine the logs
 ```bash
-docker compose logs -f sqlpackage
+docker compose logs -f
 ```
