@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[FactSalesOrder]
 (
-    [SalesOrderKey] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [SalesOrderKey] INT NOT NULL PRIMARY KEY,
     [SalesOrderDateKey] INT NOT NULL,
     [ProductKey] INT NOT NULL,
     [CustomerKey] INT NOT NULL,

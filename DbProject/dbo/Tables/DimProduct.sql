@@ -1,6 +1,6 @@
 CREATE TABLE [dbo].[DimProduct]
 (
-    [ProductKey] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [ProductKey] INT NOT NULL PRIMARY KEY,
     [ProductName] VARCHAR (50) NOT NULL,
     [Category] VARCHAR (50) NOT NULL,
     [ListPrice] DECIMAL (18, 2) NOT NULL
