@@ -1,8 +1,9 @@
+#!/bin/bash
 
-# select all tables and views from sql server:
+set -e
 
-QUERY="
-SELECT * FROM INFORMATION_SCHEMA.TABLES
-"
+DB="demo"
+QUERY="SELECT * FROM vSalesByCityAndCategory"
 
-docker exec -it --env-file .env db /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "$QUERY" -b
+docker exec -it --env-file .env db /opt/mssql-tools/bin/sqlcmd \
+    -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -d "$DB" -Q "$QUERY" -b
