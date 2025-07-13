@@ -5,7 +5,7 @@
 
 ## Overview
 
-> This project demonstrates how to automate test a star schema development with 'microsoft.sqlpackage' using a GitHub Actions & Docker.
+> This project demonstrates how to automate tests with 'microsoft.sqlpackage' using a GitHub Actions & Docker.
 
 
 ## Flow
@@ -21,7 +21,7 @@
 
 ## Setup
 1. Create a new Azure Service Principal
-2. Create a new Azure SQL Database, see infra [Makefile](./infra/Makefile) for more details.
+2. Create a new Azure SQL Database, see [Makefile](./infra/Makefile) for more details.
 
 ## Configuration
 1. Add the following secrets to your GitHub repository:
