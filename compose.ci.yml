@@ -10,17 +10,18 @@ services:
       - -c
       - |
         set -eo pipefail
+        mkdir -p /reports
         echo "==> DeployReport: verifying deployed schema matches dacpac ..."
         sqlpackage /Action:DeployReport \
           /SourceFile:"${SourceFile}" \
           /TargetConnectionString:"${TargetConnectionString}" \
-          /OutputPath:/tmp/deploy-report.xml
-        cat /tmp/deploy-report.xml
+          /OutputPath:/reports/deploy-report.xml
+        cat /reports/deploy-report.xml
         echo "==> DriftReport: checking for schema drift ..."
         sqlpackage /Action:DriftReport \
           /TargetConnectionString:"${TargetConnectionString}" \
-          /OutputPath:/tmp/drift-report.xml
-        cat /tmp/drift-report.xml
+          /OutputPath:/reports/drift-report.xml
+        cat /reports/drift-report.xml
         echo "==> Tests passed."
     env_file:
       - .env
@@ -30,6 +31,7 @@ services:
     volumes:
       - $PWD/DbProject:/app:rw
       - ./tests:/tests
+      - $PWD/reports:/reports
     depends_on:
       # should match service name of your app:
       seed:
