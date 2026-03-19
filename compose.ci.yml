@@ -1,0 +1,36 @@
+services:
+  ci:
+    build:
+      context: ./docker/sqlpackage
+    container_name: ci
+    tty: true
+    working_dir: /app
+    entrypoint:
+      - /bin/bash
+      - -c
+      - |
+        set -eo pipefail
+        echo "==> DeployReport: verifying deployed schema matches dacpac ..."
+        sqlpackage /Action:DeployReport \
+          /SourceFile:"${SourceFile}" \
+          /TargetConnectionString:"${TargetConnectionString}" \
+          /OutputPath:/tmp/deploy-report.xml
+        cat /tmp/deploy-report.xml
+        echo "==> DriftReport: checking for schema drift ..."
+        sqlpackage /Action:DriftReport \
+          /TargetConnectionString:"${TargetConnectionString}" \
+          /OutputPath:/tmp/drift-report.xml
+        cat /tmp/drift-report.xml
+        echo "==> Tests passed."
+    env_file:
+      - .env
+    environment:
+      SourceFile: "bin/Debug/DbProject.dacpac"
+      TargetConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=${UID};Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
+    volumes:
+      - $PWD/DbProject:/app:rw
+      - ./tests:/tests
+    depends_on:
+      # should match service name of your app:
+      seed:
+        condition: service_completed_successfully

@@ -1,4 +1,5 @@
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0
+ARG BASE_IMAGE_TAG=8.0
+FROM mcr.microsoft.com/dotnet/sdk:${BASE_IMAGE_TAG}
 WORKDIR /app
 
 RUN set -x \

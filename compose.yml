@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     environment:
-      ConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
+      ConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=${UID};Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
       # keep the container alive for debugging
       DEBUG: "${DEBUG:-}"
     volumes:
@@ -35,7 +35,7 @@ services:
     environment:
       DACFX_TELEMETRY_OPTOUT: true
       SourceFile: "bin/Debug/DbProject.dacpac"
-      TargetConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
+      TargetConnectionString: "Server=tcp:db,1433;Initial Catalog=demo;UID=${UID};Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=true;Connection Timeout=3;"
     volumes:
       - $PWD/DbProject:/app:rw
       - $PWD/scripts:/scripts
@@ -51,7 +51,7 @@ services:
 
   # https://hub.docker.com/r/microsoft/mssql-server
   db:
-    image: mcr.microsoft.com/mssql/server:2022-CU12-ubuntu-22.04
+    image: mcr.microsoft.com/mssql/server:2022-CU23-ubuntu-22.04
     container_name: db
     hostname: db
     env_file:
@@ -63,7 +63,7 @@ services:
     healthcheck:
       test:
         - CMD-SHELL
-        - /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT getdate()" -b
+        - /opt/mssql-tools/bin/sqlcmd -S localhost -U "$UID" -P "$MSSQL_SA_PASSWORD" -Q "SELECT getdate()" -b
       timeout: 3s
       interval: 10s
       retries: 10
