@@ -13,13 +13,13 @@ services:
         mkdir -p /reports
         echo "==> DeployReport: verifying deployed schema matches dacpac ..."
         sqlpackage /Action:DeployReport \
-          /SourceFile:"${SourceFile}" \
-          /TargetConnectionString:"${TargetConnectionString}" \
+          /SourceFile:"$${SourceFile}" \
+          /TargetConnectionString:"$${TargetConnectionString}" \
           /OutputPath:/reports/deploy-report.xml
         cat /reports/deploy-report.xml
         echo "==> DriftReport: checking for schema drift ..."
         sqlpackage /Action:DriftReport \
-          /TargetConnectionString:"${TargetConnectionString}" \
+          /TargetConnectionString:"$${TargetConnectionString}" \
           /OutputPath:/reports/drift-report.xml
         cat /reports/drift-report.xml
         echo "==> Tests passed."
