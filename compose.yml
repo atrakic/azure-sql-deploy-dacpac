@@ -63,8 +63,8 @@ services:
     healthcheck:
       test:
         - CMD-SHELL
-        - /opt/mssql-tools/bin/sqlcmd -S localhost -U "$UID" -P "$MSSQL_SA_PASSWORD" -Q "SELECT getdate()" -b
-      timeout: 3s
+        - /opt/mssql-tools18/bin/sqlcmd -S localhost -U "$UID" -P "$MSSQL_SA_PASSWORD" -Q "SELECT getdate()" -b -No
+      timeout: 5s
       interval: 10s
-      retries: 10
-      start_period: 10s
+      retries: 15
+      start_period: 30s
