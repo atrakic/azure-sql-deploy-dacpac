@@ -5,6 +5,7 @@
     <Name>DbProject</Name>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\DimCustomer.sql" />
