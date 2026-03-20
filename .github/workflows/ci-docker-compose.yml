@@ -1,9 +1,9 @@
 name: Docker Compose CI
 
 on:
+  push:
   workflow_dispatch:
   pull_request:
-
 
 env:
   COMPOSE_FILE: compose.yml:compose.ci.yml
