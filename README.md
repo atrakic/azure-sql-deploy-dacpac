@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/atrakic/azure-sql-deploy-dacpac.svg)](https://github.com/atrakic/azure-sql-deploy-dacpac/blob/main/LICENSE)
 [![ci](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci.yml)
+[![Docker Compose CI](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci-docker-compose.yml/badge.svg)](https://github.com/atrakic/azure-sql-deploy-dacpac/actions/workflows/ci-docker-compose.yml)
 
 ## Overview
 
