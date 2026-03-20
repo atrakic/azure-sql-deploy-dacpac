@@ -12,7 +12,7 @@ jobs:
   docker-compose-ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.2.2
       - name: Build the stack
         run: |
           DOCKER_BUILDKIT=1 docker compose up --quiet-pull --no-color --remove-orphans --detach
@@ -22,7 +22,7 @@ jobs:
         run: docker compose logs
       - name: Upload test reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: sqlpackage-reports
           path: reports/
