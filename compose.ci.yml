@@ -34,5 +34,5 @@ services:
       - $PWD/reports:/reports
     depends_on:
       # should match service name of your app:
-      seed:
+      sqlpackage:
         condition: service_completed_successfully
