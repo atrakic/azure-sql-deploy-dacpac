@@ -7,11 +7,4 @@
     <ModelCollation>1033, CI</ModelCollation>
     <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
   </PropertyGroup>
-  <ItemGroup>
-    <Build Include="dbo\Tables\DimCustomer.sql" />
-    <Build Include="dbo\Tables\DimDate.sql" />
-    <Build Include="dbo\Tables\DimProduct.sql" />
-    <Build Include="dbo\Tables\FactSalesOrder.sql" />
-    <Build Include="dbo\Views\vSalesByCityAndCategory.sql" />
-  </ItemGroup>
 </Project>
